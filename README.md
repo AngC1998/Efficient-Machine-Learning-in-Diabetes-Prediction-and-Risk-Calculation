@@ -9,6 +9,13 @@ This project implements different machine learning algorithms in predicting diab
 - LightGBM
 - Gradient Boosting
 
+### Performance Metrics Used: 
+- Accuracy
+- #### ROC-AUC
+- Precision
+- Recall
+- F-Beta (F=2)
+
 ### Bibliography
 - Tasin I, Nabil TU, Islam S, Khan R. Diabetes prediction using machine learning and explainable AI techniques. Healthc Technol Lett. 2022 Dec 14;10(1-2):1-10. doi: 10.1049/htl2.12039. PMID: 37077883; PMCID: PMC10107388.
 - Anant Ram and Honey Vishwakarma 2021 IOP Conf. Ser.: Mater. Sci. Eng. 1116 012135
