@@ -11,7 +11,7 @@ This project implements different machine learning algorithms in predicting diab
 
 ### Performance Metrics Used: 
 - Accuracy
-- #### ROC-AUC
+- ##### ROC-AUC
 - Precision
 - Recall
 - F-Beta (F=2)
