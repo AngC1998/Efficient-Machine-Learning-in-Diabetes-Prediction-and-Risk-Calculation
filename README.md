@@ -3,11 +3,11 @@ This project implements different machine learning algorithms in predicting diab
 
 ### Models used in this Project: 
 - Logistic Regression (Baseline and Optimization with Newton-Cholesky, Newton-Cg, and lbfgs solvers)
-- Random Forests (Baseline and Optimization with Bayes)
-- XGBoost (Baseline and Optimization with Bayes)
-- CatBoost (Baseline and Optimization with Bayes)
-- LightGBM (Baseline and Optimization with Bayes)
-- Gradient Boosting (Baseline and Optimization with Bayes)
+- Random Forests (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation)
+- XGBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation)
+- CatBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation)
+- LightGBM (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation)
+- Gradient Boosting (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation)
 
 ### Performance Metrics Used: 
 - Accuracy
