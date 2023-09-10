@@ -2,12 +2,12 @@
 This project implements different machine learning algorithms in predicting diabetes and the risk of developing diabetes based on certain factors and determining which factors are important in influencing the outcome and how much they influence the outcome. 
 
 ### Models used in this Project: 
-- Logistic Regression
-- Random Forests
-- XGBoost
-- CatBoost
-- LightGBM
-- Gradient Boosting
+- Logistic Regression (Baseline and Optimization with Newton-Cholesky, Newton-Cg, and lbfgs solvers)
+- Random Forests (Baseline and Optimization with Bayes)
+- XGBoost (Baseline and Optimization with Bayes)
+- CatBoost (Baseline and Optimization with Bayes)
+- LightGBM (Baseline and Optimization with Bayes)
+- Gradient Boosting (Baseline and Optimization with Bayes)
 
 ### Performance Metrics Used: 
 - Accuracy
