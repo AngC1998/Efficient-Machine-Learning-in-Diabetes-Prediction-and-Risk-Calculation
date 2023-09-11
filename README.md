@@ -56,7 +56,7 @@ Also, based on our performing metrics, while our best-performing model did well 
 - Develop some sort of app that lets users input values to see probabilistic chance of developing diabetes
 - Improve best-performing model by possibly only considering the features that significantly contribute to developing diabetes
 
-### Bibliography
+### Bibliography:
 - Tasin I, Nabil TU, Islam S, Khan R. Diabetes prediction using machine learning and explainable AI techniques. Healthc Technol Lett. 2022 Dec 14;10(1-2):1-10. doi: 10.1049/htl2.12039. PMID: 37077883; PMCID: PMC10107388.
 - Anant Ram and Honey Vishwakarma 2021 IOP Conf. Ser.: Mater. Sci. Eng. 1116 012135
 - Fregoso-Aparicio, L., Noguez, J., Montesinos, L. et al. Machine learning and deep learning predictive models for type 2 diabetes: a systematic review. Diabetol Metab Syndr 13, 148 (2021). https://doi.org/10.1186/s13098-021-00767-9
