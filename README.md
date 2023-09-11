@@ -23,7 +23,7 @@ Since our output variable, diabetes variable, is a categorical/discrete variable
 - If it would improve performance, I did consider normalizing continuous or numerical values, but based on current model performance, that was probably not needed for now (though it would be great if anyone suggests other-wise)
 
 ### Feature Selection: 
-Since number of original features was under 20 and I wanted to consider all the features as possible equal contributions to development of diabetes, there was no feature selection done for now (though that can be a next step through results). 
+Since number of original features was under 20 and I wanted to consider all the features in equal consideration to the development of diabetes, there was no feature selection done for now (though that can be a next step through results). 
 
 ### Models used in this Project: 
 - Logistic Regression (Baseline and Optimization with Newton-Cholesky, Newton-Cg, and lbfgs solvers)
