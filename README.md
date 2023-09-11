@@ -1,5 +1,10 @@
 # Machine-Learning-in-Diabetes-Prediction-and-Risk-Calculation
+
+### About the Project: 
 This project implements different machine learning algorithms in predicting diabetes and the risk of developing diabetes based on certain factors and determining which factors are important in influencing the outcome and how much they influence the outcome. 
+
+### Data: 
+The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. There are 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable, so we are taking a categorical approach with this dataset. 
 
 ### Questions: 
 - What are the features that influence diabetes the most significantly and how much influence do these features have?
