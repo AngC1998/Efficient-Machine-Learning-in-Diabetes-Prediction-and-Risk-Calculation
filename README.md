@@ -35,10 +35,10 @@ Since number of original features was under 20 and I wanted to consider all the 
 ### Interpretation Technique(s) Used: 
 - SHAP (SHapley Additive exPlanations)
 
-### Next Steps: 
+### Possible Next Steps: 
 - Implementing an optimized (by ROC-AUC) Naive Bayes model
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
-- Maybe collect more information of those with diabetes
+- Maybe collect more information of those with diabetes (due to low recall score that affected F-Beta score)
 - Develop some sort of app that lets users input values to see probabilistic chance of developing diabetes
 - Improve best-performing model by possibly only considering the features that significantly contribute to developing diabetes
 
