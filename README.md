@@ -4,7 +4,7 @@
 This project implements different machine learning algorithms in predicting diabetes and the risk of developing diabetes based on certain factors and determining which factors are important in influencing the outcome and how much they influence the outcome. 
 
 ### Data: 
-The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. There are 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable, so we are taking a categorical approach with this dataset. 
+The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. There are 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable, so we are taking a categorical approach with this dataset. Our dataset recorded 91,500 patients with no diabetes and 8,500 patients with diabetes (noticeable class imbalance). 
 
 ### Questions: 
 - What are the features that influence diabetes the most significantly and how much influence do these features have?
@@ -32,7 +32,7 @@ Since number of original features was under 20 and I wanted to consider all the 
 
 ### Performance Metrics Used: 
 - Accuracy
-- ##### ROC-AUC
+- ROC-AUC (Primary Performing Metric)
 - Precision
 - Recall
 - F-Beta (F=2)
@@ -42,6 +42,8 @@ Since number of original features was under 20 and I wanted to consider all the 
 
 ### Conclusion: 
 CatBoost with Bayes Search optimization was the best performing model based on ROC-AUC (our primary performing metric), and using SHAP, based on the model, our top five features that significantly influenced the development of diabetes are HbA1c_level, blood_glucose_level, age, bmi, and hypertension. While heart disease (the only explicit disease other than diabetes) has somewhat played a role in determining the development of diabetes, it has not played as large of a role. Thus, while heart disease can possibly play a role in developing diabetes, it does not largely determine in whether you will develop diabetes or not. 
+
+Also, based on our performing metrics, while our best-performing model did well in not misdiagnosing (diagnoising those with no noticeable developing diabetes with the disease), it would need some improvement in detecting those with actual development of diabetes (our model did miss some patients with actual development of diabetes). This is probably due to the heavy class imbalance in our dataset where a good majority of the patients in our dataset did not have any significant development in diabetes vs noticeable development of diabetes. 
 
 ### Possible Next Steps: 
 - Implementing an optimized (by ROC-AUC) Naive Bayes model
