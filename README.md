@@ -40,6 +40,9 @@ Since number of original features was under 20 and I wanted to consider all the 
 ### Interpretation Technique(s) Used: 
 - SHAP (SHapley Additive exPlanations)
 
+### Conclusion: 
+CatBoost with Bayes Search optimization was the best performing model based on ROC-AUC (our primary performing metric), and using SHAP, based on the model, our top five features that significantly influenced the development of diabetes are HbA1c_level, blood_glucose_level, age, bmi, and hypertension. While heart disease (the only explicit disease other than diabetes) has somewhat played a role in determining the development of diabetes, it has not played as large of a role. Thus, while heart disease can possibly play a role in developing diabetes, it does not largely determine in whether you will develop diabetes or not. 
+
 ### Possible Next Steps: 
 - Implementing an optimized (by ROC-AUC) Naive Bayes model
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
