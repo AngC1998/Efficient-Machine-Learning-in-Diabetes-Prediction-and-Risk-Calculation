@@ -54,6 +54,7 @@ Gradient Boosting is the best performing model through ROC-AUC.
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
 - Develop some sort of app that lets users input values to see probabilistic chance of developing diabetes
 - Improve best-performing model by possibly only considering the features that significantly contribute to developing diabetes
+- Implement Deep Learning/Neural Networks
 
 ### Bibliography:
 - Tasin I, Nabil TU, Islam S, Khan R. Diabetes prediction using machine learning and explainable AI techniques. Healthc Technol Lett. 2022 Dec 14;10(1-2):1-10. doi: 10.1049/htl2.12039. PMID: 37077883; PMCID: PMC10107388.
