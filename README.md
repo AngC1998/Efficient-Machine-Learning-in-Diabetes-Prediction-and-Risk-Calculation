@@ -8,10 +8,10 @@ This project implements different machine learning algorithms in predicting diab
 The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. There are 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. Our dataset recorded 91,500 patients with no diabetes (diabetes = 0) and 8,500 patients with diabetes (diabetes = 1) which is quite a noticeable class imbalance. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable.
 
 ### Current Approach: 
-Since our output variable, diabetes variable, is a categorical/discrete variable, we will be taking a categorical machine learning approach with this dataset. Based on previous studies done and the need of powerful and high-performing models/algorithms, we will implement logistic regression and tree-based models such as Random Forests. We will start with a baseline for all of our models implemented, and then optimize our models using Bayes Search for better prediction performance compared to our baseline performances. We then choose the best performing model (based on ROC-AUC) and then use SHAP to determine the most significant features in determining development of diabetes. 
+Since our original dataset is very unbalanced in terms of output (91,500 non-diabetics vs 8,500 diabetics), we'll balance out the dataset by oversampling the minority class (diabetes class) using SMOTE (Synthetic Minority Oversampling Technique). Since our output variable, diabetes variable, is a categorical/discrete variable, we will be taking a categorical machine learning approach with this dataset. Based on previous studies done and the need of powerful and high-performing models/algorithms, we will implement logistic regression and tree-based models such as Random Forests and CATBoost. We will start with a baseline for all of our models implemented, and then optimize our models using Bayes Search for better prediction performance compared to our baseline performances. We then choose the best performing model (based on ROC-AUC) and then use SHAP to determine the most significant features in determining development of diabetes. 
 
 ### Questions: 
-- What are the features that influence diabetes the most significantly and how much influence do these features have?
+- What are the features that influence diabetes the most significantly and how much influence do these features have? Do each of these features have a positive or negative or neutral influence on the risk of diabetes? 
 - Given values of all features, what is the probabilistic chance a person will get diabetes?
 
 ### Novel Contributions: 
@@ -19,14 +19,17 @@ Since our output variable, diabetes variable, is a categorical/discrete variable
 - Determining how other diseases and health conditions such as heart disease play a role in diabetes
 
 ### Preprocessing: 
-- One-Hot Encode gender and smoking_history features
+- One-Hot Encode gender feature
+- Group several similar smoking_history values into one value ("former", "ever", "not current" into just "former")
+- Label Encode smoking_history feature
+- Normalize numerical/continuous features
 - Convert age from float type to int type
-- If it would improve performance, I did consider normalizing continuous or numerical values, but based on current model performance, that was probably not needed for now (though it would be great if anyone suggests other-wise)
 
 ### Feature Selection: 
 Since number of original features was under 20 and I wanted to consider all the features in equal consideration to the development of diabetes, there was no feature selection done for now (though that can be a next step through results). 
 
 ### Models used in this Project: 
+- Naive Bayes (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - Logistic Regression (Baseline and Optimization with Newton-Cholesky, Newton-Cg, and lbfgs solvers)
 - Random Forests (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - XGBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
@@ -45,14 +48,10 @@ Since number of original features was under 20 and I wanted to consider all the 
 - SHAP (SHapley Additive exPlanations)
 
 ### Conclusion: 
-CatBoost with Bayes Search optimization was the best performing model based on ROC-AUC (our primary performing metric), and using SHAP, based on the model, our top five features that significantly influenced the development of diabetes are HbA1c_level, blood_glucose_level, age, bmi, and hypertension. While heart disease (the only explicit disease other than diabetes) has somewhat played a role in determining the development of diabetes, it has not played as large of a role. Thus, while heart disease can possibly play a role in developing diabetes, it does not largely determine in whether one will develop diabetes or not. 
-
-Also, based on our performing metrics, while our best-performing model did well in not misdiagnosing (diagnoising those with no noticeable developing diabetes with the disease), it would need some improvement in detecting those with actual development of diabetes (our model did miss some patients with actual development of diabetes). This is probably due to the heavy class imbalance in our dataset where a good majority of the patients in our dataset did not have any significant development in diabetes vs noticeable development of diabetes. 
+Gradient Boosting is the best performing model through ROC-AUC. 
 
 ### Possible Next Steps: 
-- Implementing an optimized (by ROC-AUC) Naive Bayes model
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
-- Maybe collect more information of those with diabetes (due to low recall score that affected F-Beta score)
 - Develop some sort of app that lets users input values to see probabilistic chance of developing diabetes
 - Improve best-performing model by possibly only considering the features that significantly contribute to developing diabetes
 
