@@ -5,18 +5,21 @@
 This project implements different machine learning algorithms in predicting diabetes and the risk of developing diabetes based on certain factors and determining which factors are important in influencing the outcome and how much they influence the outcome. 
 
 ### Data: 
-The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. There are 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. Our dataset recorded 91,500 patients with no diabetes (diabetes = 0) and 8,500 patients with diabetes (diabetes = 1) which is quite a noticeable class imbalance. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable.
+The dataset used for this project is the Diabetes prediction dataset from Kaggle that has features such as age, gender, body mass index (BMI), hypertension, heart disease, smoking history, HbA1c level, and blood glucose level. The original dataset has 100,000 rows with each row representing a unique patient and 8 original features (not including diabetes which is our output variable) in the dataset. Our original dataset recorded 91,500 patients with no diabetes (diabetes = 0) and 8,500 patients with diabetes (diabetes = 1) which is quite a noticeable class imbalance. There are 4 numerical/continuous features and 4 categorical/discrete features in the dataset. The diabetes variable, which is our output variable, is a categorical/discrete variable.
 
 ### Current Approach: 
-Since our original dataset is very unbalanced in terms of output (91,500 non-diabetics vs 8,500 diabetics), we'll balance out the dataset by oversampling the minority class (diabetes class) using SMOTE (Synthetic Minority Oversampling Technique) and ADASYN (Adaptive Synthetic). Since our output variable, diabetes variable, is a categorical/discrete variable, we will be taking a categorical machine learning approach with this dataset. Based on previous studies done and the need of powerful and high-performing models/algorithms, we will implement logistic regression and tree-based models such as Random Forests and CATBoost. We will start with a baseline for all of our models implemented, and then optimize our models using Bayes Search for better prediction performance compared to our baseline performances. We then choose the best performing model (based on ROC-AUC) and then use SHAP to determine the most significant features in determining development of diabetes. 
+Since our original dataset is very unbalanced in terms of output (91,500 non-diabetics vs 8,500 diabetics), we'll balance out the dataset by oversampling the minority class (diabetes class) using SMOTE (Synthetic Minority Oversampling Technique) and ADASYN (Adaptive Synthetic). Since our output variable, diabetes variable, is a categorical/discrete variable, we will be taking a categorical machine learning approach with this dataset. Based on previous studies done and the need of powerful and high-performing but also efficient models/algorithms, we will implement logistic regression and tree-based models such as Random Forests and CATBoost. We will start with a baseline for all of our models implemented, and then optimize our models using Bayes Search for better prediction performance compared to our baseline performances. We then choose the best or most efficient performing model (based on ROC-AUC and training time duration) and then use SHAP to determine the most significant features in determining development of diabetes. 
 
 ### Questions: 
-- What are the features that influence diabetes the most significantly and how much influence do these features have? Do each of these features have a positive or negative or neutral influence on the risk of diabetes? 
+- What are the features that influence diabetes the most significantly and how much influence do these features have? Do each of these features have a positive or negative or neutral influence on the risk of diabetes?
+- How do factors such as heart disease or gender/biological sex play a role in the development and risk of diabetes? 
 - Given values of all features, what is the probabilistic chance a person will get diabetes?
 
 ### Novel Contributions: 
 - Calculating probability risk of developing diabetes given the values of features
 - Determining how other diseases and health conditions such as heart disease play a role in diabetes
+- Determining if one gender/biological sex has an increased chance of developing diabetes
+- Using training time as a determination of the best or most efficient model aside from testing phase performance (focusing on efficiency)
 
 ### Preprocessing: 
 - One-Hot Encode gender feature
@@ -28,14 +31,20 @@ Since our original dataset is very unbalanced in terms of output (91,500 non-dia
 ### Feature Selection: 
 Since number of original features was under 20 and I wanted to consider all the features in equal consideration to the development of diabetes, there was no feature selection done for now (though that can be a next step through results). 
 
+### Dataset Classification Balancing Techniques Used: 
+- SMOTE (Synthetic Minority Oversampling Technique)
+- ADASYN (Adaptive Synthetic)
+
 ### Models used in this Project: 
-- Naive Bayes (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
+- Gaussian Naive Bayes (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - Logistic Regression (Baseline and Optimization with Newton-Cholesky, Newton-Cg, and lbfgs solvers)
 - Random Forests (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
+- Decision-Tree Based Bagging (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
+- AdaBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - XGBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - CatBoost (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
 - LightGBM (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
-- Gradient Boosting (Baseline and Optimization with Bayes Search of 15 iterations of 5 sections of cross-validation through ROC-AUC)
+- Gradient Boosting (Baseline and Optimization with Bayes Search of 5 iterations of 5 sections of cross-validation through ROC-AUC)
 
 ### Performance Metrics Used: 
 - Accuracy
@@ -48,7 +57,11 @@ Since number of original features was under 20 and I wanted to consider all the 
 - SHAP (SHapley Additive exPlanations)
 
 ### Conclusion: 
-Gradient Boosting is the best performing model through ROC-AUC. 
+According to ROC-AUC, Gradient Boosting trained with the ADASYN version of the dataset is the best-performing model with a score of 0.99858. However, it is also the model with the longest training time with 2 hours, 55 minutes, and 5.5451 seconds even with the least amount of Bayes Search optimization iterations needed. The quickest trained model was the baseline Gaussian Naive Bayes trained with the ADASYN version of the dataset, but it is one of the worst performing models. In consideration of performance (ROC-AUC score) and training time, the best-performing model and the model we'll use for interpretation is LightGBM with a ROC-AUC score of 0.99820 and a training time of 16 minutes and 8.77944 seconds. 
+
+Using the LightGBM trained with the ADASYN version of the dataset, we determined that the top 5 factors that influence the development and risk of diabetes are Hb1Ac level, blood glucose level, age, body mass index (BMI), and smoking history with these factors playing about equal consideration more or less to both classes (diabetes and no diabetes). While heart disease played a bit of a role in the development of diabetes, it didn't play as significant of a role as the aforementioned factors and in fact the second-least (if gender was not divided) or fourth-least (considering that gender was dummy coded during preprocessing) significant factor in the development of diabetes. 
+
+Also, according to the interpretation, it seems like males and females are about equally as likely to develop diabetes. 
 
 ### Possible Next Steps: 
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
