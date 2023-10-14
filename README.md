@@ -65,6 +65,7 @@ Also, according to the interpretation, it seems like males and females are about
 
 ### Possible Next Steps: 
 - Determining how other diabetes plays a role in heart disease (and maybe other diabetes)
+- Investigate how diabetes can develop in patients who are currently diagnosed as non-diabetic in the next year or so. 
 - Develop some sort of app that lets users input values to see probabilistic chance of developing diabetes
 - Improve best-performing model by possibly only considering the features that significantly contribute to developing diabetes
 - Implement Deep Learning/Neural Networks
