@@ -1,4 +1,4 @@
-# Machine-Learning-in-Diabetes-Prediction-and-Risk-Calculation
+# Efficient-Machine-Learning-in-Diabetes-Prediction-and-Risk-Calculation
 ## By Angela Cao
 
 ### About the Project: 
